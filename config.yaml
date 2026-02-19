@@ -1,0 +1,39 @@
+# Configuration file for transformer language model
+
+model:
+  vocab_size: 10000
+  d_model: 512
+  num_layers: 6
+  num_heads: 8
+  d_ff: 2048
+  max_seq_len: 1024
+  dropout: 0.1
+
+tokenizer:
+  vocab_size: 10000
+
+training:
+  batch_size: 32
+  learning_rate: 3e-4
+  weight_decay: 0.1
+  num_epochs: 10
+  max_grad_norm: 1.0
+  warmup_steps: 100
+  save_every: 1
+
+data:
+  dataset: tiny_shakespeare
+  max_length: 512
+  train_split: 0.9
+
+inference:
+  max_length: 100
+  method: top_p
+  temperature: 1.0
+  top_k: 50
+  top_p: 0.9
+
+paths:
+  checkpoint_dir: ./checkpoints
+  tokenizer_path: ./tokenizer.json
+  data_dir: ./data
